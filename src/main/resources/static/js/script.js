@@ -13,6 +13,9 @@ function connect(event) {
 		document.querySelector('#welcome-page').classList.add('hidden');
 		document.querySelector('#dialogue-page').classList.remove('hidden');
 
+        // BROWSER --  HTTP    --> SERVER (initial request es http)
+        // BROWSER <-- HTTP 101 -- SERVER (el server le responde con HTTP 101 Switching Protocols from HTTP to WS)
+        // BROWSER <-- WS      --> SERVER (behind the scenes el Browser termina haciendo todo por WS protocol)
 		var socket = new SockJS('http://localhost:9090/websocketApp');
 		stompClient = Stomp.over(socket);
 
