@@ -23,6 +23,7 @@ public class AppConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
         registry.setApplicationDestinationPrefixes("/app"); // cualquier mensaje que tenga /app en la URL va a ser ruteado a los metodos anotados con @MessageMapping dentro del controller
+        //registry.setUserDestinationPrefix("/user"); Este prefix te va a permitir routear mensajes para personas especificas, usando @SendToUser en vez de @SendTo en el controller
         registry.enableStompBrokerRelay("/topic") // cualquier mensaje que tenga /topic en la URL va a ser enviado a este broker
                 .setRelayHost("localhost")
                 .setRelayPort(61613)
