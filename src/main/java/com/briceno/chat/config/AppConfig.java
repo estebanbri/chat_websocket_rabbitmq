@@ -16,6 +16,7 @@ public class AppConfig implements WebSocketMessageBrokerConfigurer {
         // Entry point de request que vengan desde el FrontEnd al Backend
         // http://localhost:9090/websocketApp
         registry.addEndpoint("/websocketApp").withSockJS(); // register this application con el nombre de websocketApp aqui es donde van a hittear los clientes para subscribirse al broker, los clientes no pueden ir a hittear directamente al servidor rabbitMq
+        // Use SockJS() for fallback options y nos aseguramos que nuestra aplicacion funcione incluso aun si el cliente no acepta websockets por ej si usa internet explorer, usando otra tecnica como polling
     }
 
     // Configuramos el broker que vamos a usar

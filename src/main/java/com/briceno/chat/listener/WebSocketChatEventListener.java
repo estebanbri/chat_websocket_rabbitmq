@@ -14,7 +14,7 @@ import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 public class WebSocketChatEventListener {
 
     @Autowired
-    private SimpMessageSendingOperations messagingTemplate;
+    private SimpMessageSendingOperations messagingTemplate; // Equivale a un RestTemplate pero este nos sirve para interactuar con el broker en este caso RabbitMQ
 
     @EventListener
     public void manejarEventoConexion(SessionConnectedEvent eventoConexion){
@@ -27,10 +27,10 @@ public class WebSocketChatEventListener {
         String username = (String) headerAccessor.getSessionAttributes().get("username");
         if(username != null){
             Mensaje mensaje = new Mensaje();
-            mensaje.setTipo("Salio");
+            mensaje.setTipo("SALIO");
             mensaje.setSender(username);
 
-            messagingTemplate.convertAndSend("/topic/public", mensaje); // cuando un usuario se va del chat con esto le avisamos a los demas clientes es decir va a ser published to all clients fordwarding este mensaje al broker
+            messagingTemplate.convertAndSend("/topic/abc", mensaje); // cuando un usuario se va del chat con esto le avisamos a los demas clientes es decir va a ser published to all clients fordwarding este mensaje al broker
         }
     }
 }
