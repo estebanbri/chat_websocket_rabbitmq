@@ -1,7 +1,10 @@
 package com.briceno.chat.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
@@ -15,7 +18,7 @@ public class AppConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         // Entry point de request que vengan desde el FrontEnd al Backend
         // http://localhost:9090/websocketApp
-        registry.addEndpoint("/websocketApp").withSockJS(); // register this application con el nombre de websocketApp aqui es donde van a hittear los clientes para subscribirse al broker, los clientes no pueden ir a hittear directamente al servidor rabbitMq
+        registry.addEndpoint("/websocketApp").setAllowedOrigins("http://localhost:3000").withSockJS(); // register this application con el nombre de websocketApp aqui es donde van a hittear los clientes para subscribirse al broker, los clientes no pueden ir a hittear directamente al servidor rabbitMq
         // Use SockJS() for fallback options y nos aseguramos que nuestra aplicacion funcione incluso aun si el cliente no acepta websockets por ej si usa internet explorer, usando otra tecnica como polling
     }
 

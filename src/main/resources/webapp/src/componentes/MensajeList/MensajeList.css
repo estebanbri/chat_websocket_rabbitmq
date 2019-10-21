@@ -1,0 +1,10 @@
+#dialogue-page ul {
+	list-style-type: none;
+	background-color: #FFF;
+	margin: 0;
+	overflow: auto;
+	overflow-y: scroll;
+	padding: 0 20px 0px 20px;
+	height: calc(100% - 150px);
+	min-height: 400px;
+}

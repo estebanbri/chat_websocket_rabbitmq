@@ -9,13 +9,13 @@ import org.springframework.stereotype.Component;
 @Scope(scopeName = "websocket", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class MalasPalabrasCheckInWebSocketSession {
 
-    private Integer numeroAviso = 3;
+    private Integer numeroAvisoRestante = 3;
 
     public Mensaje chequear(Mensaje mensaje){
         if(mensaje.getContenido().equals("PELOTUDO")){
-           mensaje.setContenido("NO DIGAS MALASPALABRAS! Te restan " + --numeroAviso + " avisos");
+           mensaje.setContenido("NO DIGAS MALASPALABRAS! Te restan " + --numeroAvisoRestante + " avisos para que te desconecte de la websocket session");
         }
-        if(numeroAviso == 0){
+        if(numeroAvisoRestante == 0){
             mensaje.setTipo("SALIO");
             // TODO implementar desconexion
         }

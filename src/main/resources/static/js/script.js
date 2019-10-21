@@ -85,6 +85,5 @@ function onMessageReceived(payload) {
 
 	document.querySelector('#messageList').appendChild(messageElement);
 	document.querySelector('#messageList').scrollTop = document
-			.querySelector('#messageList').scrollHeight;
-
-}
+			.querySelector('#messageList').scrollHeight
+			}

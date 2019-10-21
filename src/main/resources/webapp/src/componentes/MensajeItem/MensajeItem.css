@@ -1,0 +1,45 @@
+.event-data {
+	width: 100%;
+	text-align: center;
+	clear: both;
+}
+
+.event-data p {
+	color: #777;
+	font-size: 14px;
+	word-wrap: break-word;
+}
+
+#dialogue-page .message-data {
+	padding-left: 68px;
+	position: relative;
+}
+
+.message-data i {
+	position: absolute;
+	width: 42px;
+	height: 42px;
+	overflow: hidden;
+	left: 10px;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 18px;
+	line-height: 42px;
+	color: gray;
+	text-align: center;
+	background-color:#fff;
+    border:1px solid #304ffe;    
+    border-radius:50%;
+	font-style: normal;
+	text-transform: uppercase;
+	
+}
+.message-data span {
+	color: #304ffe;
+    font-weight: 600;
+}
+
+.message-data p {
+    color: #43464b;
+    text-align: left;
+}
