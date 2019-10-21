@@ -8,8 +8,12 @@ Aplicacion de mensajeria, usando React, Javascript, Java 8 , Spring Boot, WebSoc
 ## Development server Back End
 - localhost:9090
 
-## Captures
+## Screenshots
+
+### Pantalla bienvenida
 
 ![Alt text](https://github.com/estebanbri/chat_websocket_rabbitmq/blob/master/welcom2.png?raw=true "Welcome")
+
+### Pantalla sala de chat
 
 ![Alt text](https://github.com/estebanbri/chat_websocket_rabbitmq/blob/master/chat2.png?raw=true "Sala")
