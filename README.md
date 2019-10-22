@@ -10,6 +10,6 @@ Aplicacion de mensajeria, usando React, Javascript, Java 8 , Spring Boot, WebSoc
 
 ## Captures
 
-![Alt text](https://github.com/estebanbri/chat_websocket_rabbitmq/blob/master/welcom2.png?raw=true "Welcome")
+![Alt text](https://github.com/estebanbri/chat_websocket_rabbitmq/blob/master/bienvenido.png?raw=true "Welcome")
 
-![Alt text](https://github.com/estebanbri/chat_websocket_rabbitmq/blob/master/chat2.png?raw=true "Sala")
+![Alt text](https://github.com/estebanbri/chat_websocket_rabbitmq/blob/master/chat.png?raw=true "Sala")
