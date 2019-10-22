@@ -43,6 +43,7 @@ public class ChatController {
     @MessageMapping("/chat.nuevoUsuario")
     @SendTo("/topic/abc")
     public Mensaje nuevoUsuario(@Payload Mensaje mensaje, SimpMessageHeaderAccessor headerAccessor){
+        headerAccessor.getSessionAttributes().put("usuario", mensaje.getSender());
         return mensaje; // el mensaje retornado va a ser enviado a /topic/abc definido en @SendTo // con esto vamos a avisar a los demas usuarios que se ha unido el nuevo usuario
     }
 

@@ -1,16 +1,21 @@
 import React from 'react';
 import './ChatPage.css'
 import MensajeList from '../MensajeList/MensajeList.js'
-import { FiSend } from "react-icons/fi";
-
+import { IoMdSend } from "react-icons/io";
 import { IoMdChatbubbles } from "react-icons/io";
+import { IconContext } from "react-icons";
 
 const  chatPage = ( props ) => {
     return (
         <div id="dialogue-page">
             <div className="dialogue-container">
                 <div className="dialogue-header">
-                    <h2>Sala de chat <IoMdChatbubbles/></h2>
+                    <h2>
+                        <span> Sala de chat </span>
+                        <IconContext.Provider value={{ color: "#ecfcff" }}>
+                            <IoMdChatbubbles/>
+                        </IconContext.Provider>
+                    </h2>
                 </div>
                 <MensajeList mensajes={props.mensajes}/>
                 <form id="dialogueForm" className="dialogue-form">
@@ -21,8 +26,7 @@ const  chatPage = ( props ) => {
                                   className="form-control" />
                                   </div>
                             <button className="btn btn-success" onClick={props.clic} type="button">
-                                Enviar
-                               <FiSend />
+                                Enviar <IoMdSend/>
                             </button>
                     </div>
                 </form>

@@ -25,9 +25,9 @@
 	vertical-align: middle;
 	font-size: 18px;
 	line-height: 42px;
-	color: gray;
+	color: #FFF;
 	text-align: center;
-	background-color:#fff;
+	background-color:#304ffe;
     border:1px solid #304ffe;    
     border-radius:50%;
 	font-style: normal;
@@ -35,7 +35,7 @@
 	
 }
 .message-data span {
-	color: #304ffe;
+	color: rgb(71, 68, 68);
     font-weight: 600;
 }
 

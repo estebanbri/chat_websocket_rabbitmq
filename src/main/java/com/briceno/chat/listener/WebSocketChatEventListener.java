@@ -24,7 +24,7 @@ public class WebSocketChatEventListener {
     @EventListener
     public void manejarEventoDesconexion(SessionDisconnectEvent eventoDesconexion){
         StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(eventoDesconexion.getMessage());
-        String username = (String) headerAccessor.getSessionAttributes().get("username");
+        String username = (String) headerAccessor.getSessionAttributes().get("usuario");
         if(username != null){
             Mensaje mensaje = new Mensaje();
             mensaje.setTipo("SALIO");
