@@ -4,6 +4,7 @@ import SockJS from "sockjs-client"
 import Stomp from 'stompjs'
 import WelcomePage from './componentes/WelcomePage/WelcomePage.js'
 import ChatPage from './componentes/ChatPage/ChatPage.js'
+import ReglamentoModal from "./componentes/ReglamentoModal/ReglamentoModal.js"
 
 class  App extends Component {
 
@@ -22,6 +23,7 @@ class  App extends Component {
         },
         mensajes: [],
         isLogged: false,
+        modal: false
       };
     }
 
@@ -67,6 +69,7 @@ class  App extends Component {
   handleClick = (event) => {
     const sender = this.state.mensaje.sender;
     if(sender && this.isConnected){
+      this.toggleModal();
       this.setState({isLogged : true});
       this.stompClient.subscribe('/topic/abc', this.leerMensaje);
       this.stompClient.send("/app/chat.nuevoUsuario", {}, JSON.stringify(this.state.mensaje));
@@ -77,7 +80,13 @@ class  App extends Component {
  sendMessage = (event) => {
       this.stompClient.send("/app/chat.enviarMensaje", {}, JSON.stringify(this.state.mensaje));
       this.wasSend = true;
-  }
+ }
+
+ toggleModal = () => {
+  this.setState(prevState => ({
+    modal: !prevState.modal
+  }));
+ }
 
   componentDidMount(){
     const socket = new SockJS('http://localhost:9090/websocketApp');
@@ -89,9 +98,13 @@ class  App extends Component {
     return (
       <div className="App">
         { this.state.isLogged 
-          ? <ChatPage enviado={this.wasSend} clic={this.sendMessage} cambio={this.updateInput} mensajes={this.state.mensajes}/>
+          ? <div>
+              <ReglamentoModal estaAbierto={this.state.modal} miToggleModal={this.toggleModal}/>
+              <ChatPage enviado={this.wasSend} clic={this.sendMessage} cambio={this.updateInput} mensajes={this.state.mensajes}/>
+            </div>
           : <WelcomePage clic={this.handleClick} cambio={this.updateInput}/>
         }
+        
       </div>
     );
   }
